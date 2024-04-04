@@ -117,9 +117,9 @@
     return restaurants[Math.floor(Math.random() * restaurants.length)];
     }
     
-    // Mock function to generate a random meeting time between 15 to 120 minutes
+   // Function to generate a random meeting time between 15 to 59 minutes
     function generateRandomMinutes() {
-        return Math.floor(Math.random() * 106) + 15; // Generates a number between 15 and 120
+    return Math.floor(Math.random() * 45) + 15; // Generates a number between 15 and 59
     }
 
     async function generateSentence() {
