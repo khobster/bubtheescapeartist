@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the portfolio of kevin m.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🥹</h1>
+    </header>
+    <main>
+        <h2>Meet Bub the Prophet.</h2>
+        <p id="sentenceFeedback">Click Bub's red button to get your future.</p>
+        <p id="generatedSentence"></p> <!-- Element to display the generated sentence -->
+        <a id="bubLink" href="#" style="cursor: pointer;">
+            <img src="bub%20the%20prophet%20no%20background.png" alt="Bub the Prophet">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="copywriting.html">Copywriting</a></li>
+                <li><a href="content.html">Content</a></li>
+                <li><a href="newspaper-bylines.html">Newspaper Bylines</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="art.html">Art</a></li>
+                <li><a href="bio-contact.html">Bio/Contact</a></li>
+            </ul>
+        </nav>
+    </main>
+    <script>
+        async function fetchCities() {
+            const response = await fetch('https://raw.githubusercontent.com/khobster/portfolio/main/csvjson.json');
+            const cities = await response.json();
+            return cities;
+        }
+
+        async function fetchRandomActivity() {
+            const response = await fetch('https://www.boredapi.com/api/activity/');
+            const data = await response.json();
+            // Convert the first letter of the activity to lowercase and return it
+            return data.activity.charAt(0).toLowerCase() + data.activity.slice(1);
+        }
+
+
+        async function fetchRandomName() {
+            const response = await fetch('https://randomuser.me/api/');
+            const data = await response.json();
+            const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
+            return name;
+        }
+
+        async function generateSentence() {
+            const cities = await fetchCities();
+            function getRandomElement(arr) {
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
+
+            const days = Math.floor(Math.random() * 100);
+            const randomActivity = await fetchRandomActivity();
+            const randomName = await fetchRandomName();
+            const randomCityObject = getRandomElement(cities);
+            const randomCity = randomCityObject[","].replace(/,/g, ' '); // Replace commas with spaces
+
+            return `In ${days} days, you'll ${randomActivity} in ${randomCity} with ${randomName}.`;
+        }
+
+        function speakSentence(sentence) {
+            const formattedSentence = sentence.replace(/,/g, ' '); // Further ensure all commas are replaced with spaces in the entire sentence
+            const utterance = new SpeechSynthesisUtterance(formattedSentence);
+            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name.includes('Male'));
+            if (!utterance.voice) {
+                console.log("Preferred voice not found, using default.");
+            }
+            window.speechSynthesis.speak(utterance);
+
+            // Display the generated sentence without commas in the city name
+            document.getElementById('generatedSentence').textContent = formattedSentence;
+        }
+
+        function wakeUpSpeechSynthesis() {
+            speechSynthesis.speak(new SpeechSynthesisUtterance(''));
+        }
+
+        document.getElementById('bubLink').addEventListener('click', async function(event) {
+            event.preventDefault();
+            wakeUpSpeechSynthesis();
+            document.getElementById('sentenceFeedback').textContent = 'Grab a pen and write this down...';
+            const sentence = await generateSentence();
+            speakSentence(sentence);
+            // Update the instruction text back only after the speech ends
+            window.speechSynthesis.onend = () => {
+                document.getElementById('sentenceFeedback').textContent = 'Click Bub to hear more.';
+            };
+        });
+    </script>
+</body>
+</html>
