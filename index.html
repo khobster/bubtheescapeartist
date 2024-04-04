@@ -14,6 +14,12 @@
         <h2>Bub the Escape Artist.</h2>
         <p id="sentenceFeedback">Need an excuse? Click Bub's button & get out of long/tortuous convos for free.</p>
         <p id="generatedSentence"></p> <!-- Element to display the generated sentence -->
+        <!-- Email form -->
+        <form id="excuseForm">
+            <input type="email" id="emailAddress" name="user_email" placeholder="Your email address" required>
+            <input type="hidden" id="excuse" name="excuse_message">
+            <input type="submit" value="Send me this excuse">
+        </form>
         <a id="bubLink" href="#" style="cursor: pointer;">
             <img src="bub%20the%20prophet%20no%20background.png" alt="Bub the Prophet">
         </a>
@@ -28,18 +34,23 @@
             </ul>
         </nav>
     </main>
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("jZCrMG8JEvzJ1JB1l"); // Replace with your EmailJS user ID
+        })();
+    </script>
     <script>
         async function fetchRandomName() {
-        const response = await fetch('https://randomuser.me/api/');
-        const data = await response.json();
-        const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
-        return name;
-    }
-    
-    // Mock function to simulate fetching a random restaurant name
-    function fetchRandomRestaurant() {
-    const restaurants = [
-        "7 Leaves Cafe", "Benihana", "Gen Korean BBQ", "HuHot Mongolian Grill",
+            const response = await fetch('https://randomuser.me/api/');
+            const data = await response.json();
+            const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
+            return name;
+        }
+
+        function fetchRandomRestaurant() {
+            const restaurants = [
+                "7 Leaves Cafe", "Benihana", "Gen Korean BBQ", "HuHot Mongolian Grill",
         "Kabuki Japanese Restaurant", "Kona Grill", "Nobu", "P.F. Chang's China Bistro",
         "Roy's", "Bar Louie", "Beef O'Brady's", "HopCat", "Miller's Ale House",
         "Twin Peaks", "Yard House", "Gold Star Chili", "Shane's Rib Shack", "Skyline Chili",
@@ -112,51 +123,48 @@
         "Texas Roadhouse", "Tony Roma's", "Western Sizzlin'", "Chuck E. Cheese", "Dave & Busters", "Peter Piper Pizza", "Topgolf", "Beefsteak Charlie's",
         "Bikinis Sports Bar & Grill", "Bill Knapp's", "Bugaboo Creek Steakhouse", "Burger Chef", "Chi Chi's", "Chicken in the Rough", "ESPN Zone",
         "Fresh Choice", "Furr's", "Good Earth", "Hamburger Hamlet", "Horne's", "Koo Koo Roo", "Lone Star Steakhouse & Saloon", "Lyon's", "Red Barn",
-        "ShopHouse Southeast Asian Kitchen", "ShowBiz Pizza Place", "Sweet Tomatoes", "York Steak House"
-    ];
-    return restaurants[Math.floor(Math.random() * restaurants.length)];
-    }
-    
-   // Function to generate a random meeting time between 15 to 59 minutes
-    function generateRandomMinutes() {
-    return Math.floor(Math.random() * 45) + 15; // Generates a number between 15 and 59
-    }
-
-    async function generateSentence() {
-        const randomName = await fetchRandomName();
-        const randomRestaurant = fetchRandomRestaurant(); // No need to await since it's not async
-        const randomMinutes = generateRandomMinutes();
-
-        return `You'll have to excuse me I have a meeting with ${randomName} at ${randomRestaurant} in ${randomMinutes} minutes.`;
-    }
-
-        function speakSentence(sentence) {
-            const formattedSentence = sentence.replace(/,/g, ' '); // Further ensure all commas are replaced with spaces in the entire sentence
-            const utterance = new SpeechSynthesisUtterance(formattedSentence);
-            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name.includes('Male'));
-            if (!utterance.voice) {
-                console.log("Preferred voice not found, using default.");
-            }
-            window.speechSynthesis.speak(utterance);
-
-            // Display the generated sentence without commas in the city name
-            document.getElementById('generatedSentence').textContent = formattedSentence;
+        "ShopHouse Southeast Asian Kitchen", "ShowBiz Pizza Place", "Sweet Tomatoes", "York Steak House"];
+            return restaurants[Math.floor(Math.random() * restaurants.length)];
         }
 
-        function wakeUpSpeechSynthesis() {
-            speechSynthesis.speak(new SpeechSynthesisUtterance(''));
+        function generateRandomMinutes() {
+            return Math.floor(Math.random() * 45) + 15; // Generates a number between 15 and 59
+        }
+
+        async function generateSentence() {
+            const randomName = await fetchRandomName();
+            const randomRestaurant = fetchRandomRestaurant();
+            const randomMinutes = generateRandomMinutes();
+
+            return `You'll have to excuse me I have a meeting with ${randomName} at ${randomRestaurant} in ${randomMinutes} minutes.`;
+        }
+
+        function speakSentence(sentence) {
+            const formattedSentence = sentence;
+            const utterance = new SpeechSynthesisUtterance(formattedSentence);
+            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name.includes('Male'));
+            window.speechSynthesis.speak(utterance);
+            document.getElementById('generatedSentence').textContent = formattedSentence;
         }
 
         document.getElementById('bubLink').addEventListener('click', async function(event) {
             event.preventDefault();
-            wakeUpSpeechSynthesis();
-            document.getElementById('sentenceFeedback').textContent = 'Grab a pen and write this down...';
             const sentence = await generateSentence();
             speakSentence(sentence);
-            // Update the instruction text back only after the speech ends
-            window.speechSynthesis.onend = () => {
-                document.getElementById('sentenceFeedback').textContent = 'Click Bub to hear more.';
-            };
+            document.getElementById('sentenceFeedback').textContent = 'Grab a pen and write this down...';
+            // Set the generated excuse in the hidden form field for email
+            document.getElementById('excuse').value = sentence;
+        });
+
+        document.getElementById('excuseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_rys7roe', 'template_7iuqbut', this)
+                .then(function() {
+                    alert('Excuse sent!');
+                    // Reset form or provide further user feedback
+                }, function(error) {
+                    alert('Failed to send excuse:', error);
+                });
         });
     </script>
 </body>
