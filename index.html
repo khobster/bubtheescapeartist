@@ -156,6 +156,13 @@
 
         document.getElementById('bubLink').addEventListener('click', async function(event) {
             event.preventDefault();
+
+            // Try to "wake up" speech synthesis
+    var emptyUtterance = new SpeechSynthesisUtterance('');
+    window.speechSynthesis.speak(emptyUtterance);
+    window.speechSynthesis.cancel(); // Immediately cancel to not actually speak the empty utterance
+
+            
             document.getElementById('sentenceFeedback').textContent = 'Generating excuse...';
             const sentence = await generateSentence();
             speakSentence(sentence);
