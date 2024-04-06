@@ -1,0 +1,47 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #fff; /* Adjust the color to match the background of your site */
+}
+
+.work-experience {
+    max-width: 800px; /* Adjust the width as needed */
+    margin: auto;
+}
+
+h1 {
+    font-size: 32px; /* Adjust the size as needed */
+    color: #000; /* Adjust the color to match the style of your site */
+    margin-bottom: 20px;
+}
+
+.experience-block {
+    background-color: #f9f9f9; /* Adjust the color to match the style of your site */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.company-logo {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    /* Optional: Align the image to the left if you have floated elements */
+}
+
+.time-period {
+    font-size: 20px; /* Adjust the size as needed */
+    color: #666; /* Adjust the color as needed */
+    margin: 10px 0;
+}
+
+.experience-block p {
+    font-size: 16px; /* Adjust the size as needed */
+    line-height: 1.6; /* Adjust the line height as needed */
+    color: #333; /* Adjust the text color as needed */
+    margin: 10px 0;
+}
+
+/* If you want to add any bold text styling */
+.experience-block p strong {
+    font-weight: bold;
+}
