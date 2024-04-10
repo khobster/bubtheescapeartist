@@ -65,13 +65,13 @@
             <div class="profile-content">
                 <h1 class="profile-name">Hi, I'm Kevin.</h1>
                 <p class="profile-text">
-                    I'm a New Jersey-born writer based in Charleston, South Carolina. I write digital copy and content, fiction, and handwritten letters to my brothers. In my free time, I make my own pizza, play an old nylon guitar, and create things. I also played college basketball.
+                    I'm a New Jersey-born writer based in Charleston, South Carolina.</p><p>I write digital copy and content, fiction, and handwritten letters to my brothers.</p><p></p>In my free time, I make my own pizza, play an old nylon guitar, and create things. I also played college basketball.
                 </p>
                 <p>
                     If you'd like to get in touch, text or call my New Mexico office at: 
                     <button onclick="document.getElementById('phone').textContent='(505) 226-4632';this.style.display='none';">Click to reveal phone number</button>
                     <span id="phone"></span>
-                </p>
+                </p>Or drop me your email address and I'll follow up as soon as I see it:
                 <!-- EmailJS form to submit the user's email -->
                 <form id="emailForm">
                     <input type="email" name="user_email" placeholder="Your email address" required>
@@ -86,7 +86,7 @@
             event.preventDefault();
 
             // Change 'your_emailjs_service_id', 'your_emailjs_template_id' to your actual EmailJS details
-            emailjs.sendForm('your_emailjs_service_id', 'your_emailjs_template_id', this)
+            emailjs.sendForm('jZCrMG8JEvzJ1JB1l', 'template_1r8hc0i', this)
                 .then(function() {
                     alert('Email successfully sent!');
                 }, function(error) {
