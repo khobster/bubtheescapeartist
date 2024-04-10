@@ -153,17 +153,21 @@
         }
 
         function speakSentence(sentence) {
-            const formattedSentence = sentence;
-            const utterance = new SpeechSynthesisUtterance(formattedSentence);
-            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name.includes('Male'));
-            window.speechSynthesis.speak(utterance);
-            document.getElementById('generatedSentence').textContent = formattedSentence;
-            
-            // Show the form and additional message as the excuse is generated
-            document.getElementById('excuseForm').style.display = 'block';
-            document.getElementById('scriptText').style.display = 'block';
-            document.getElementById('excuse').value = formattedSentence; // Update the hidden field with the excuse
-        }
+    const formattedSentence = sentence;
+    const utterance = new SpeechSynthesisUtterance(formattedSentence);
+
+    // This will use the default voice for the device
+    // There is no guarantee this will be Siri on iOS or Google Assistant on Android,
+    // but it will be the default voice that the device/browser has set.
+    window.speechSynthesis.speak(utterance);
+    document.getElementById('generatedSentence').textContent = formattedSentence;
+
+    // Show the form and additional message as the excuse is generated
+    document.getElementById('excuseForm').style.display = 'block';
+    document.getElementById('scriptText').style.display = 'block';
+    document.getElementById('excuse').value = formattedSentence; // Update the hidden field with the excuse
+}
+
 
         document.getElementById('bubLink').addEventListener('click', async function(event) {
             event.preventDefault();
