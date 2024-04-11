@@ -11,52 +11,71 @@
         })();
     </script>
     <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+        text-align: center; /* Center text on smaller screens */
+    }
+    .container {
+        width: 100%; /* Use full width on smaller screens */
+        max-width: 800px; /* Maximum width of the container */
+        background-color: white;
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile {
+        flex-direction: column; /* Stack image and content on smaller screens */
+        align-items: center;
+    }
+    .profile-image {
+        max-width: 100%; /* Make image responsive */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 20px; /* Add space below image */
+    }
+    .profile-content {
+        width: 100%; /* Full width for the content */
+    }
+    .profile-name {
+        font-size: 2em; /* Keep larger text for headlines */
+        margin: 0.5em 0; /* Smaller margin for headlines */
+    }
+    .profile-text {
+        margin: 10px 0; /* Margin for paragraphs */
+    }
+    .profile-resume,
+    .profile-contact {
+        color: #00f;
+        text-decoration: none;
+    }
+    .profile-resume:hover,
+    .profile-contact:hover {
+        text-decoration: underline;
+    }
+    
+    /* Media query for larger screens */
+    @media (min-width: 600px) {
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            background-color: white;
-            margin: 20px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Left-align text on larger screens */
         }
         .profile {
-            display: flex;
-            align-items: center;
+            flex-direction: row; /* Side-by-side image and content on larger screens */
         }
         .profile-image {
-            max-width: 200px;
-            margin-right: 20px;
-            border-radius: 10px;
+            max-width: 200px; /* Fixed image size on larger screens */
+            margin-right: 20px; /* Space between image and content */
         }
         .profile-content {
-            flex: 1;
+            width: auto; /* Auto width for the content on larger screens */
         }
-        .profile-name {
-            font-size: 2em;
-            margin: 0;
-        }
-        .profile-text {
-            margin: 10px 0;
-        }
-        .profile-resume,
-        .profile-contact {
-            color: #00f;
-            text-decoration: none;
-        }
-        .profile-resume:hover,
-        .profile-contact:hover {
-            text-decoration: underline;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <div class="container">
