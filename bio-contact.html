@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin - Bio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans">
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("jZCrMG8JEvzJ1JB1l"); // Replace with your actual EmailJS user ID
+        })();
+    </script>
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -17,67 +23,73 @@
             width: 100%; /* Use full width on smaller screens */
             max-width: 1024px; /* Maximum width of the container */
             background-color: white;
-            margin: 20px;
+            margin: 20px auto; /* Auto margins for center alignment */
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left; /* Left-align text for the container */
         }
         .profile {
-            display: block; /* Stack image and content on smaller screens */
+            display: block; /* Use block for better stacking on mobile */
             margin: auto;
         }
         .profile-image {
-            width: 50%; /* Make image responsive */
-            float: left; /* Align image to the left */
-            margin-right: 20px; /* Space between image and content */
+            width: 100%; /* Make image responsive */
+            max-width: 300px; /* Set a max-width for the image on mobile */
+            margin: 20px auto; /* Center the image */
             border-radius: 4px;
         }
         .profile-content {
-            width: 50%; /* Full width for the content */
-            float: left; /* Align content to the left */
+            width: 100%;
+            margin-top: 20px;
         }
         .profile-name {
             font-family: 'Merriweather', serif;
             color: #333;
-            font-size: 1.8em; /* Slightly smaller text for headlines */
+            font-size: 1.5em; /* Adjust headline size for mobile */
         }
         .profile-text,
         .profile-contact {
-            font-family: 'Open Sans', sans-serif;
             font-size: 1em; /* Standard font size for text */
+            color: #333;
+            line-height: 1.6;
+            margin: 0 5%; /* Add side margins for text */
         }
-        
-        /* Clear floats after the columns */
-        .clear-both {
-            clear: both;
-        }
-        
+        input[type=email],
         .contact-button,
         .email-button {
-            font-family: 'Open Sans', sans-serif;
+            font-size: 1em; /* Adjust text size for mobile */
+            width: 90%; /* Make input and buttons responsive */
+            margin: 10px 5%; /* Add margins for centering */
+            padding: 10px; /* Padding for inputs and buttons */
+            border: 1px solid #ddd; /* Subtle border for inputs */
+            border-radius: 4px; /* Rounded corners for inputs and buttons */
+        }
+        .contact-button,
+        .email-button {
             background-color: #007bff;
             color: white;
             border: none;
-            padding: 10px 20px;
-            text-transform: uppercase;
-            margin: 10px 0;
             cursor: pointer;
-            border-radius: 2px;
         }
         .contact-button:hover,
         .email-button:hover {
             background-color: #0056b3;
         }
-
-        @media (max-width: 768px) {
-            .profile-image,
-            .profile-content {
-                width: 100%;
-                float: none;
+        /* Media query for larger screens */
+        @media (min-width: 600px) {
+            .profile {
+                display: flex;
+                align-items: flex-start; /* Align items to the start on larger screens */
             }
-            .contact-button,
-            .email-button {
-                width: 100%; /* Full width for buttons on mobile */
+            .profile-image {
+                width: auto; /* Auto width for larger screens */
+                max-width: 200px; /* Max width for the image */
+                margin-right: 20px; /* Space between image and content */
+            }
+            .profile-content {
+                width: auto; /* Auto width for content on larger screens */
+            }
+            .profile-name {
+                font-size: 2em; /* Larger text for headlines on larger screens */
             }
         }
     </style>
@@ -89,25 +101,24 @@
             <div class="profile-content">
                 <h1 class="profile-name">Hi, I'm Kevin.</h1>
                 <p class="profile-text">
-                    I'm a New Jersey-born writer based in Charleston, South Carolina. I help businesses with brand building and content strategy. In my free time I write fiction, handwritten letters to my brothers, make my own big floppy slices of pizza (it's not the New York City water, trust me), play an old nylon guitar, mow the lawn, and create things. I also played D-1 college basketball.
+                    I'm a New Jersey-born writer based in Charleston, South Carolina. I write digital copy and content, fiction, and handwritten letters to my brothers. In my free time, I make my own pizza, play an old nylon guitar, and create things. I also played college basketball.
                 </p>
                 <p class="profile-contact">
-                    <button class="contact-button" onclick="document.getElementById('phone').textContent='(505) 226-4632';this.style.display='none';">Click to reveal phone number</button>
+                    If you'd like to get in touch, text or call my office line at:
+                    <button onclick="document.getElementById('phone').textContent='(505) 226-4632';this.style.display='none';" class="contact-button">Click to reveal phone number</button>
                     <span id="phone"></span>
                 </p>
                 <p class="profile-contact">
                     Or drop me your email and I'll follow up as soon as I see it:
+                    <!-- EmailJS form to submit the user's email -->
+                    <form id="emailForm">
+                        <input type="email" name="user_email" placeholder="Your email address" required>
+                        <button type="submit" class="email-button">Send My Email</button>
+                    </form>
                 </p>
-                <!-- EmailJS form to submit the user's email -->
-                <form id="emailForm">
-                    <input type="email" name="user_email" placeholder="Your email address" required>
-                    <button class="email-button" type="submit">Send My Email</button>
-                </form>
             </div>
-            <div class="clear-both"></div>
         </div>
     </div>
-
     <script type="text/javascript">
         document.getElementById('emailForm').addEventListener('submit', function(event) {
             event.preventDefault();
