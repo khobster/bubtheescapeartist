@@ -4,78 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin - Bio</title>
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("jZCrMG8JEvzJ1JB1l"); // Replace with your actual EmailJS user ID
-        })();
-    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans">
     <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #f0f0f0;
-        text-align: center; /* Center text on smaller screens */
-    }
-    .container {
-        width: 100%; /* Use full width on smaller screens */
-        max-width: 800px; /* Maximum width of the container */
-        background-color: white;
-        margin: 20px;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .profile {
-        flex-direction: column; /* Stack image and content on smaller screens */
-        align-items: center;
-    }
-    .profile-image {
-        max-width: 100%; /* Make image responsive */
-        height: auto; /* Maintain aspect ratio */
-        margin-bottom: 20px; /* Add space below image */
-    }
-    .profile-content {
-        width: 100%; /* Full width for the content */
-    }
-    .profile-name {
-        font-size: 2em; /* Keep larger text for headlines */
-        margin: 0.5em 0; /* Smaller margin for headlines */
-    }
-    .profile-text {
-        margin: 10px 0; /* Margin for paragraphs */
-    }
-    .profile-resume,
-    .profile-contact {
-        color: #00f;
-        text-decoration: none;
-    }
-    .profile-resume:hover,
-    .profile-contact:hover {
-        text-decoration: underline;
-    }
-    
-    /* Media query for larger screens */
-    @media (min-width: 600px) {
         body {
-            text-align: left; /* Left-align text on larger screens */
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center; /* Center text on smaller screens */
+        }
+        .container {
+            width: 100%; /* Use full width on smaller screens */
+            max-width: 1024px; /* Maximum width of the container */
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Left-align text for the container */
         }
         .profile {
-            flex-direction: row; /* Side-by-side image and content on larger screens */
+            display: block; /* Stack image and content on smaller screens */
+            margin: auto;
         }
         .profile-image {
-            max-width: 200px; /* Fixed image size on larger screens */
+            width: 50%; /* Make image responsive */
+            float: left; /* Align image to the left */
             margin-right: 20px; /* Space between image and content */
+            border-radius: 4px;
         }
         .profile-content {
-            width: auto; /* Auto width for the content on larger screens */
+            width: 50%; /* Full width for the content */
+            float: left; /* Align content to the left */
         }
-    }
-</style>
+        .profile-name {
+            font-family: 'Merriweather', serif;
+            color: #333;
+            font-size: 1.8em; /* Slightly smaller text for headlines */
+        }
+        .profile-text,
+        .profile-contact {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em; /* Standard font size for text */
+        }
+        
+        /* Clear floats after the columns */
+        .clear-both {
+            clear: both;
+        }
+        
+        .contact-button,
+        .email-button {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+        .contact-button:hover,
+        .email-button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .profile-image,
+            .profile-content {
+                width: 100%;
+                float: none;
+            }
+            .contact-button,
+            .email-button {
+                width: 100%; /* Full width for buttons on mobile */
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -84,27 +89,28 @@
             <div class="profile-content">
                 <h1 class="profile-name">Hi, I'm Kevin.</h1>
                 <p class="profile-text">
-                    I'm a New Jersey-born writer based in Charleston, South Carolina.</p><p>I write digital copy and content, fiction, and handwritten letters to my brothers.</p><p></p>In my free time, I make my own pizza, play an old nylon guitar, and create things. I also played college basketball.
+                    I'm a New Jersey-born writer based in Charleston, South Carolina. I write digital copy and content, fiction, and handwritten letters to my brothers. In my free time, I make my own pizza, play an old nylon guitar, and create things. I also played college basketball.
                 </p>
-                <p>
-                    If you'd like to get in touch, text or call my office line at: 
-                    <button onclick="document.getElementById('phone').textContent='(505) 226-4632';this.style.display='none';">Click to reveal phone number</button>
+                <p class="profile-contact">
+                    <button class="contact-button" onclick="document.getElementById('phone').textContent='(505) 226-4632';this.style.display='none';">Click to reveal phone number</button>
                     <span id="phone"></span>
-                </p>Or drop me your email and I'll follow up as soon as I see it:
+                </p>
+                <p class="profile-contact">
+                    Or drop me your email and I'll follow up as soon as I see it:
+                </p>
                 <!-- EmailJS form to submit the user's email -->
                 <form id="emailForm">
                     <input type="email" name="user_email" placeholder="Your email address" required>
-                    <button type="submit">Send My Email</button>
+                    <button class="email-button" type="submit">Send My Email</button>
                 </form>
             </div>
+            <div class="clear-both"></div>
         </div>
     </div>
 
     <script type="text/javascript">
         document.getElementById('emailForm').addEventListener('submit', function(event) {
             event.preventDefault();
-
-            // Change 'your_emailjs_service_id', 'your_emailjs_template_id' to your actual EmailJS details
             emailjs.sendForm('service_rys7roe', 'template_1r8hc0i', this)
                 .then(function() {
                     alert('Email successfully sent!');
