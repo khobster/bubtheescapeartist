@@ -1,157 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin's folio</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRB4K32M3X"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-NRB4K32M3X');
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 600px;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .question {
-            display: inline-block;
-            position: relative;
-            font-size: 5px;
-            cursor: pointer;
-        }
-        .tooltip {
-            visibility: hidden;
-            background-color: black;
-            color: white;
-            text-align: left;
-            padding: 5px;
-            border-radius: 5px;
-            position: absolute;
-            z-index: 1;
-            right: 110%; /* Adjust this value to move the tooltip */
-            top: -5px; /* Adjust this value to align vertically */
-            width: 250px; /* Width of the tooltip */
-        }
-        .question:hover .tooltip {
-            visibility: visible;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kevin's folio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRB4K32M3X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NRB4K32M3X');
+</script>
 </head>
 <body>
-    <div class="container">
-        <h1>🥹</h1>
-        <h2>Bub the Escape Artist. <span class="question">What is Bub?<span class="tooltip">Think of him as a Walmart greeter for this portfolio. He's also an app I developed that gives a unique excuse every time you hit the button on his tummy, with a different make-believe person’s name. I also loaded in every chain restaurant in the United States (which my god there are a ton) and that gives the location along with a random number of minutes that's also unique every time. I also built it so it gives you the option to email it to yourself, so you don't forget the excuse. Ever. Bub is actually inspired by that scene in the film American Psycho when Christian Bale's character says he has a lunch meeting with Cliff Huxtable at the Four Seasons.</span></span></h2>
-        <p id="sentenceFeedback">Press Bub & get an excuse to escape any convo.</p>
-        <p id="generatedSentence"></p>
-        <!-- Email form, initially hidden -->
-        <form id="excuseForm" style="display:none;">
-            <input type="email" id="emailAddress" name="user_email" placeholder="Your email address" required>
-            <input type="hidden" id="excuse" name="excuse_message">
-            <input type="submit" value="Send me this excuse">
-        </form>
-        <p id="scriptText" style="display:none;"></p>
-        <a id="bubLink" href="#" style="cursor: pointer;">
-            <img src="newbub.png" alt="Bub the Prophet">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="copywriting.html">Copywriting/Content</a></li>
-                <li><a href="https://sluicebox-media.com/work/newspaper-writing/" target="_blank">Newspaper Bylines</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="https://www.linkedin.com/in/kevin-murawinski/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://visit.virtualartgallery.com/gummies">Art</a></li>
-                <li><a href="bio-contact.html">Bio/Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("jZCrMG8JEvzJ1JB1l");
-        })();
-    </script>
-    <script>
-        async function fetchRandomName() {
-            const response = await fetch('https://randomuser.me/api/?nat=us,gb,ca,au,nz');
-            const data = await response.json();
-            const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
-            return name;
-        }
+    <header>
+        <h1> </h1>
+    </header>
+    <main>
+        <h2>Bub the Escape Artist.</h2>
+        <p id="sentenceFeedback">Press Bub & get an excuse to escape any convo.</p>
+        <p id="generatedSentence"></p> <!-- Element to display the generated sentence -->
+        <!-- Email form, initially hidden -->
+        <form id="excuseForm" style="display:none;">
+            <input type="email" id="emailAddress" name="user_email" placeholder="Your email address" required>
+            <input type="hidden" id="excuse" name="excuse_message">
+            <input type="submit" value="Send me this excuse">
+        </form>
+        <!-- Additional line of text, initially hidden -->
+        <p id="scriptText" style="display:none;"></p>
+        <a id="bubLink" href="#" style="cursor: pointer;">
+            <img src="newbub.png" alt="Bub the Prophet">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="copywriting.html">Copywriting/Content</a></li>
+                <li><a href="https://sluicebox-media.com/work/newspaper-writing/" target="_blank">Newspaper Bylines</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="https://www.linkedin.com/in/kevin-murawinski/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://visit.virtualartgallery.com/gummies">Art</a></li>
+                <li><a href="bio-contact.html">Bio/Contact</a></li>
+            </ul>
+        </nav>
+    </main>
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("jZCrMG8JEvzJ1JB1l"); // Replace with your actual EmailJS user ID
+        })();
+    </script>
+    <script>
+        async function fetchRandomName() {
+    // Specify English-speaking nationalities using the 'nat' parameter (US, GB, CA, etc.)
+    const response = await fetch('https://randomuser.me/api/?nat=us,gb,ca,au,nz');
+    const data = await response.json();
+    const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
+    return name;
+}
 
-        function fetchRandomRestaurant() {
-            // List of restaurants trimmed for brevity
-            const restaurants = ["7 Leaves Cafe", "Benihana", "Gen Korean BBQ", ...];
+        
+        function fetchRandomRestaurant() {
+            // List of restaurants trimmed for brevity
+            const restaurants = ["7 Leaves Cafe", "Benihana", "Gen Korean BBQ", "HuHot Mongolian Grill",
+        "Kabuki Japanese Restaurant", "Kona Grill", "Nobu", "P.F. Chang's China Bistro",
+        "Roy's", "Bar Louie", "Beef O'Brady's", "HopCat", "Miller's Ale House",
+        "Twin Peaks", "Yard House", "Gold Star Chili", "Shane's Rib Shack", "Skyline Chili",
+        "Argo Tea", "Biggby Coffee", "Caribou Coffee", "The Coffee Bean & Tea Leaf",
+        "Coffee Beanery", "CosMc's", "Dunkin' Donuts", "Dunn Brothers Coffee",
+        "Dutch Bros. Coffee", "Gloria Jean's Coffees", "Gregorys Coffee", "Heine Brothers'",
+        "Intelligentsia Coffee & Tea", "Jamba Juice", "Juice It Up!", "Kung Fu Tea",
+        "Orange Julius", "Peet's Coffee", "Philz Coffee", "Planet Smoothie", "Robeks",
+        "Seattle's Best Coffee", "Smoothie King", "Starbucks", "Swig", "Tim Hortons",
+        "Tropical Smoothie Cafe", "Au Bon Pain", "Auntie Anne's", "Bruegger's Bagels",
+        "Cinnabon", "Crumbl Cookies", "Daylight Donuts", "Duck Donuts", "Einstein Bros. Bagels",
+        "Great American Cookies", "Great Harvest Bread Company", "Honey Dew Donuts", "Insomnia Cookies",
+        "Krispy Kreme", "La Madeleine", "Le Pain Quotidien", "Mrs. Fields", "Pretzelmaker",
+        "Shipley Do-Nuts", "Wetzel's Pretzels", "Winchell's Donuts", "Yum-Yum Donuts", "Denny's",
+        "First Watch", "IHOP", "Norm's", "The Original Pancake House", "Perkins Restaurant and Bakery",
+        "Waffle House", "Bahama Breeze", "Jimmy Buffett's Margaritaville", "Applebee's", "Bakers Square",
+        "Bennigan's", "BJ's Restaurant", "Black Bear Diner", "Bob Evans Restaurant", "Boomarang Diner",
+        "Cheddar's Scratch Kitchen", "The Cheesecake Factory", "Cooper's Hawk Winery & Restaurant",
+        "Del Frisco's Grille", "Friendly's", "Golden Corral", "Gordon Biersch Brewery Restaurant",
+        "Ground Round", "Hard Rock Cafe", "Hooters", "Houlihan's", "Houston's Restaurant",
+        "Huddle House", "J. Alexander's", "Karl Strauss Brewing Company", "Lazy Dog Restaurant & Bar",
+        "Luby's", "Marie Callender's", "Metro Diner", "O'Charley's", "Planet Hollywood",
+        "Rainforest Cafe", "Rock Bottom Restaurant & Brewery", "Ruby Tuesday", "Ruby's Diner",
+        "Rusty Bucket Restaurant & Tavern", "Seasons 52", "Shari's Cafe & Pies", "Shoney's",
+        "Ted's Montana Grill", "TGI Fridays", "Village Inn", "Wood Ranch", "Bojangles' Famous Chicken 'n Biscuits",
+        "Boston Market", "Brown's Chicken & Pasta", "Bush's Chicken", "Chester's International", "Chick-fil-A",
+        "Chicken Express", "Chicken Salad Chick", "Church's Chicken", "Cluck-U Chicken", "Dave's Hot Chicken",
+        "El Pollo Loco", "Golden Chick", "Guthrie's", "Hartz Chicken", "Jollibee", "KFC",
+        "Lee's Famous Recipe Chicken", "Louisiana Famous Fried Chicken", "Maryland Fried Chicken", "Pollo Campero",
+        "Pollo Tropical", "Popeyes", "Raising Cane's Chicken Fingers", "Slim Chickens", "Smithfield's Chicken 'N Bar-B-Q",
+        "Wingstop", "Zaxby's", "The Melting Pot", "Mimi's Cafe", "Olga's Kitchen", "Andy's Frozen Custard",
+        "Baskin-Robbins", "Ben & Jerry's", "Braum's", "Bruster's Ice Cream", "Carvel", "Cold Stone Creamery",
+        "Dairy Queen", "Dippin' Dots", "Fosters Freeze", "Golden Spoon", "Graeter's", "Häagen-Dazs",
+        "Handel's Homemade Ice Cream & Yogurt", "MaggieMoo's Ice Cream and Treatery", "Marble Slab Creamery",
+        "Menchie's Frozen Yogurt", "Oberweis Dairy", "Pinkberry", "Red Mango", "Rita's Italian Ice", "Sweet Frog",
+        "Tastee-Freez", "TCBY", "Tropical Sno", "Tutti Frutti Frozen Yogurt", "Yogen Früz", "Yogurtland",
+        "A&W Restaurants", "Arctic Circle Restaurants", "Back Yard Burgers", "Big Boy", "Blake's Lotaburger",
+        "Bumper's Drive-In", "Burger King", "Burger Street", "BurgerFi", "Burgerville", "Carl's Jr./Hardee's",
+        "Checkers/Rally's", "Cheeburger Cheeburger", "Cook Out", "Culver's", "Farmer Boys", "Fatburger",
+        "Five Guys", "Freddy's Frozen Custard & Steakburgers", "Frisch's Big Boy", "Fuddruckers", "Good Times Burgers & Frozen Custard",
+        "The Habit Burger Grill", "Hwy 55 Burgers Shakes & Fries", "In-N-Out Burger", "Jack in the Box", "Jack's",
+        "Krystal", "McDonald's", "Milo's Hamburgers", "Mooyah", "Original Tommy's", "Roy Rogers Restaurants",
+        "Shake Shack", "Smashburger", "Sonic Drive-In", "Spangles", "Steak 'n Shake", "Swensons",
+        "Umami Burger", "Ward's", "Wayback Burgers", "Wendy's", "Whataburger", "White Castle", "Zip's Drive-in",
+        "Hot Dog on a Stick", "James Coney Island", "Nathan's Famous", "Portillo's Restaurants", "Sneaky Pete's",
+        "Wienerschnitzel", "America's Incredible Pizza Company", "Big Mama's & Papa's Pizzeria", "Blackjack Pizza",
+        "Blaze Pizza", "Casey's", "Cicis", "D.P. Dough", "Domino's", "Donatos Pizza", "East of Chicago Pizza",
+        "Fazoli's", "Fox's Pizza Den", "Frank Pepe's", "Gino's East", "Gino's Pizza and Spaghetti", "Giordano's Pizzeria",
+        "Godfather's Pizza", "Grotto Pizza", "Happy's Pizza", "Hungry Howie's Pizza", "Hunt Brothers Pizza", "Jet's Pizza",
+        "Ledo Pizza", "Little Caesars", "Lou Malnati's", "Marco's Pizza", "MOD Pizza", "Monical's Pizza", "Mountain Mike's Pizza",
+        "Mr. Gatti's Pizza", "Papa Gino's", "Papa John's Pizza", "Papa Murphy's", "Pieology Pizzeria", "Pizza Fusion",
+        "Pizza Hut", "Pizza Inn", "Pizza Patrón", "Pizza Ranch", "Pizzeria Regina", "Round Table Pizza", "Sbarro",
+        "Uncle Maddio's Pizza Joint", "Cava", "Daphne's Greek Cafe", "The Halal Guys", "Pita Pit", "Taziki's Mediterranean Cafe",
+        "Zankou Chicken", "Baja Fresh", "Cafe Rio", "California Tortilla", "Chipotle Mexican Grill", "Del Taco", "El Taco Tote",
+        "Fuzzy's Taco Shop", "Green/Red Burrito", "La Salsa", "Mighty Taco", "Moe's Southwest Grill", "Qdoba", "Rubio's Coastal Grill",
+        "Salsarita's Fresh Mexican Grill", "Taco Bell", "Taco Bueno", "Taco Cabana", "Taco Casa", "Taco del Mar", "Tacos El Cuñado",
+        "Taco John's", "Taco Mayo", "Taco Palenque", "Taco Time", "Taco Villa", "Tijuana Flats", "Wahoo's Fish Taco", "Chopt",
+        "Just Salad", "Saladworks", "Sweetgreen", "Veggie Grill", "WaBa Grill", "Arby's", "Atlanta Bread Company", "Blimpie",
+        "Camille's Sidewalk Cafe", "Capriotti's", "Charleys Philly Steaks", "Corner Bakery Cafe", "Così", "Cousins Subs", "D'Angelo Grilled Sandwiches",
+        "DiBella's", "Earl of Sandwich", "Eegee's", "Erbert & Gerbert's", "Firehouse Subs", "Great Wraps", "HoneyBaked Ham Co.", "Jason's Deli",
+        "Jerry's Subs & Pizza", "Jersey Mike's Subs", "Jimmy John's", "Kelly's Roast Beef", "Lee's Sandwiches", "Lenny's Grill & Sub",
+        "Lion's Choice", "Maid-Rite", "McAlister's Deli", "Mendocino Farms", "Miami Grill", "Newk's Eatery", "Panera Bread", "Paris Baguette",
+        "Penn Station East Coast Subs", "Port of Subs", "Potbelly Sandwich Shop", "Pret a Manger", "Primo Hoagies", "Quiznos", "Rax Roast Beef",
+        "Runza", "Sandella's Flatbread Café", "Schlotzsky's", "Steak Escape", "Subway", "Togo's", "Tubby's", "Tudor's Biscuit World", "Which Wich?",
+        "Arthur Treacher's", "Captain D's", "Long John Silver's", "Bill Miller Bar-B-Q", "Copeland's", "Cracker Barrel", "Dickey's Barbecue Pit",
+        "Famous Dave's", "Grandy's", "Lucille's Smokehouse Bar-B-Que", "Pappas Bar-B-Q", "Red Hot & Blue", "Smokey Bones", "Sonny Bryan's Smokehouse",
+        "Sonny's BBQ", "Black Angus Steakhouse", "The Capital Grille", "Claim Jumper", "Del Frisco's Double Eagle Steakhouse", "Fleming's Prime Steakhouse & Wine Bar",
+        "Fogo de Chão", "Logan's Roadhouse", "LongHorn Steakhouse", "Montana Mike's", "Morton's The Steakhouse", "Outback Steakhouse", "The Palm",
+        "Ponderosa/Bonanza Steakhouses", "Ruth's Chris Steak House", "Saltgrass Steak House", "Sizzler", "Stonefire Grill", "Texas de Brazil",
+        "Texas Roadhouse", "Tony Roma's", "Western Sizzlin'", "Chuck E. Cheese", "Dave & Busters", "Peter Piper Pizza", "Topgolf", "Beefsteak Charlie's",
+        "Bikinis Sports Bar & Grill", "Bill Knapp's", "Bugaboo Creek Steakhouse", "Burger Chef", "Chi Chi's", "Chicken in the Rough", "ESPN Zone",
+        "Fresh Choice", "Furr's", "Good Earth", "Hamburger Hamlet", "Horne's", "Koo Koo Roo", "Lone Star Steakhouse & Saloon", "Lyon's", "Red Barn",
+        "ShopHouse Southeast Asian Kitchen", "ShowBiz Pizza Place", "Sweet Tomatoes", "York Steak House"];
+            return restaurants[Math.floor(Math.random() * restaurants.length)];
+        }
 
-            return restaurants[Math.floor(Math.random() * restaurants.length)];
-        }
+        function generateRandomMinutes() {
+            return Math.floor(Math.random() * 45) + 15; // Generates a number between 15 and 59
+        }
 
-        function generateRandomMinutes() {
-            return Math.floor(Math.random() * 45) + 15; // Generates a number between 15 and 59
-        }
+        async function generateSentence() {
+            const randomName = await fetchRandomName();
+            const randomRestaurant = fetchRandomRestaurant();
+            const randomMinutes = generateRandomMinutes();
 
-        async function generateSentence() {
-            const randomName = await fetchRandomName();
-            const randomRestaurant = fetchRandomRestaurant();
-            const randomMinutes = generateRandomMinutes();
+            return `You'll have to excuse me I have a meeting with ${randomName} at ${randomRestaurant} in ${randomMinutes} minutes.`;
+        }
 
-            return `You'll have to excuse me I have a meeting with ${randomName} at ${randomRestaurant} in ${randomMinutes} minutes.`;
-        }
+        function speakSentence(sentence) {
+            const formattedSentence = sentence;
+            const utterance = new SpeechSynthesisUtterance(formattedSentence);
+            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name.includes('Male'));
+            window.speechSynthesis.speak(utterance);
+            document.getElementById('generatedSentence').textContent = formattedSentence;
+           
+            // Show the form and additional message as the excuse is generated
+            document.getElementById('excuseForm').style.display = 'block';
+            document.getElementById('scriptText').style.display = 'block';
+            document.getElementById('excuse').value = formattedSentence; // Update the hidden field with the excuse
+        }
 
-        function speakSentence(sentence) {
-            const formattedSentence = sentence;
-            const utterance = new SpeechSynthesisUtterance(formattedSentence);
-            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name includes 'Male'));
-            window.speechSynthesis.speak(utterance);
-            document.getElementById('generatedSentence').textContent = formattedSentence;
 
-            // Show the form and additional message as the excuse is generated
-            document.getElementById('excuseForm').style.display = 'block';
-            document.getElementById('scriptText').style.display = 'block';
-            document.getElementById('excuse').value = formattedSentence; // Update the hidden field with the excuse
-        }
+        document.getElementById('bubLink').addEventListener('click', async function(event) {
+            event.preventDefault();
 
-        document.getElementById('bubLink').addEventListener('click', async function(event) {
-            event.preventDefault();
+            // Try to "wake up" speech synthesis
+    var emptyUtterance = new SpeechSynthesisUtterance('');
+    window.speechSynthesis.speak(emptyUtterance);
+    window.speechSynthesis.cancel(); // Immediately cancel to not actually speak the empty utterance
 
-            // Try to "wake up" speech synthesis
-            var emptyUtterance = new SpeechSynthesisUtterance('');
-            window.speechSynthesis.speak(emptyUtterance);
-            window.speechSynthesis.cancel(); // Immediately cancel to not actually speak the empty utterance
+            
+            document.getElementById('sentenceFeedback').textContent = 'Generating excuse...';
+            const sentence = await generateSentence();
+            speakSentence(sentence);
+        });
 
-            document.getElementById('sentenceFeedback').textContent = 'Generating excuse...';
-            const sentence = await generateSentence();
-            speakSentence(sentence);
-        });
-
-        document.getElementById('excuseForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            emailjs.sendForm('service_rys7roe', 'template_7iuqbut', this)
-                .then(function() {
-                    alert('Excuse sent!');
-                }, function(error) {
-                    alert('Failed to send excuse:', error);
-                });
-        });
-    </script>
+        document.getElementById('excuseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_rys7roe', 'template_7iuqbut', this)
+                .then(function() {
+                    alert('Excuse sent!');
+                }, function(error) {
+                    alert('Failed to send excuse:', error);
+                });
+        });
+    </script>
 </body>
 </html>
-
