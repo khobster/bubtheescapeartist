@@ -8,8 +8,17 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .tooltip {
-            position: relative;
-            display: inline-block;
+            visibility: hidden;
+            background-color: black;
+            color: white;
+            text-align: left;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            z-index: 1;
+            right: 110%; /* Adjust this value to move the tooltip */
+            top: -5px; /* Adjust this value to align vertically */
+            width: 250px; /* Width of the tooltip */
         }
         .tooltip .tooltiptext {
             visibility: hidden;
@@ -28,7 +37,7 @@
             visibility: visible;
         }
         .question-mark {
-            font-size: 0.1em;
+            font-size: 0.3em;
             vertical-align: super;
         }
     </style>
