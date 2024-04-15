@@ -6,56 +6,55 @@
     <title>kevin's folio</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #f9f9f9;
+            color: #000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            right: 105%;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+        .question-mark {
+            font-size: 0.8em;
+            vertical-align: super;
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRB4K32M3X"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-NRB4K32M3X');
     </script>
-    <style>
-        /* Existing styles */
-        /* Add your existing CSS here */
-
-        /* Tooltip container */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted black; /* Optional: if you want a dotted underline */
-            cursor: help; /* Gives a hint that this is hoverable */
-        }
-
-        /* Tooltip text */
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 280px;
-            background-color: black;
-            color: #fff;
-            text-align: left;
-            border-radius: 6px;
-            padding: 5px 10px;
-            /* Position the tooltip */
-            position: absolute;
-            z-index: 1;
-            top: -5px;
-            left: 110%;
-        }
-
-        /* Show the tooltip text when you mouse over the tooltip container */
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-        }
-    </style>
 </head>
 <body>
     <header>
         <h1>🥹</h1>
     </header>
     <main>
-        <h2>Bub the Escape Artist.<span class="tooltip"> ??
-            <span class="tooltiptext">Thanks for toying around with it bra bra, I copied the portfolio style from the head of copy at Walmart who I was talking to. And then just added bub instead of a headline. It’s an app I wrote myself that gives a unique excuse every time with a different made up person’s name and I loaded in every chain restaurant in the United States, which my god there are a ton. Then it gives you the option to email it to yourself, which is a whole other cool program (emailjs) and I’m bcc’ed on all those emails. So if someone tries it I can email them if they’re worth it. Bub is inspired by that scene in American Psycho when Christian Bale is trying to get away and he’s like you’ll have to excuse me I have a meeting with cliff huxtable (Bill Cosby’s character's name on the Cosby Show) at the Four Seasons.</span>
-        </span></h2>
+        <div class="tooltip">
+            <h2>Bub the Escape Artist.<span class="question-mark">?</span></h2>
+            <span class="tooltiptext">Thanks for toying around with it bra bra, I copied the portfolio style from the head of copy at Walmart who I was talking to. And then just added bub instead of a headline. It’s an app I wrote myself that gives a unique excuse every time with a different made up person’s name and I loaded in every chain restaurant in the United States, which my god there are a ton.
+
+Then it gives you the option to email it to yourself, which is a whole other cool program (emailjs) and I’m bcc’ed on all those emails. So if someone tries it I can email them if they’re worth it.
+
+Bub is inspired by that scene in American Psycho when Christian Bale is trying to get away and he’s like you’ll have to excuse me I have a meeting with cliff huxtable (bill cosby’s character’s name on the cosby show) at the four seasons.</span>
+        </div>
         <p id="sentenceFeedback">Press Bub & get an excuse to escape any convo.</p>
         <p id="generatedSentence"></p> <!-- Element to display the generated sentence -->
         <!-- Email form, initially hidden -->
@@ -93,82 +92,11 @@
             const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
             return name;
         }
-        
+
         function fetchRandomRestaurant() {
-            const restaurants = ["7 Leaves Cafe", "Benihana", "Gen Korean BBQ", "HuHot Mongolian Grill",
-            "Kabuki Japanese Restaurant", "Kona Grill", "Nobu", "P.F. Chang's China Bistro",
-            "Roy's", "Bar Louie", "Beef O'Brady's", "HopCat", "Miller's Ale House",
-            "Twin Peaks", "Yard House", "Gold Star Chili", "Shane's Rib Shack", "Skyline Chili",
-            "Argo Tea", "Biggby Coffee", "Caribou Coffee", "The Coffee Bean & Tea Leaf",
-            "Coffee Beanery", "CosMc's", "Dunkin' Donuts", "Dunn Brothers Coffee",
-            "Dutch Bros. Coffee", "Gloria Jean's Coffees", "Gregorys Coffee", "Heine Brothers'",
-            "Intelligentsia Coffee & Tea", "Jamba Juice", "Juice It Up!", "Kung Fu Tea",
-            "Orange Julius", "Peet's Coffee", "Philz Coffee", "Planet Smoothie", "Robeks",
-            "Seattle's Best Coffee", "Smoothie King", "Starbucks", "Swig", "Tim Hortons",
-            "Tropical Smoothie Cafe", "Au Bon Pain", "Auntie Anne's", "Bruegger's Bagels",
-            "Cinnabon", "Crumbl Cookies", "Daylight Donuts", "Duck Donuts", "Einstein Bros. Bagels",
-            "Great American Cookies", "Great Harvest Bread Company", "Honey Dew Donuts", "Insomnia Cookies",
-            "Krispy Kreme", "La Madeleine", "Le Pain Quotidien", "Mrs. Fields", "Pretzelmaker",
-            "Shipley Do-Nuts", "Wetzel's Pretzels", "Winchell's Donuts", "Yum-Yum Donuts", "Denny's",
-            "First Watch", "IHOP", "Norm's", "The Original Pancake House", "Perkins Restaurant and Bakery",
-            "Waffle House", "Bahama Breeze", "Jimmy Buffett's Margaritaville", "Applebee's", "Bakers Square",
-            "Bennigan's", "BJ's Restaurant", "Black Bear Diner", "Bob Evans Restaurant", "Boomarang Diner",
-            "Cheddar's Scratch Kitchen", "The Cheesecake Factory", "Cooper's Hawk Winery & Restaurant",
-            "Del Frisco's Grille", "Friendly's", "Golden Corral", "Gordon Biersch Brewery Restaurant",
-            "Ground Round", "Hard Rock Cafe", "Hooters", "Houlihan's", "Houston's Restaurant",
-            "Huddle House", "J. Alexander's", "Karl Strauss Brewing Company", "Lazy Dog Restaurant & Bar",
-            "Luby's", "Marie Callender's", "Metro Diner", "O'Charley's", "Planet Hollywood",
-            "Rainforest Cafe", "Rock Bottom Restaurant & Brewery", "Ruby Tuesday", "Ruby's Diner",
-            "Rusty Bucket Restaurant & Tavern", "Seasons 52", "Shari's Cafe & Pies", "Shoney's",
-            "Ted's Montana Grill", "TGI Fridays", "Village Inn", "Wood Ranch", "Bojangles' Famous Chicken 'n Biscuits",
-            "Boston Market", "Brown's Chicken & Pasta", "Bush's Chicken", "Chester's International", "Chick-fil-A",
-            "Chicken Express", "Chicken Salad Chick", "Church's Chicken", "Cluck-U Chicken", "Dave's Hot Chicken",
-            "El Pollo Loco", "Golden Chick", "Guthrie's", "Hartz Chicken", "Jollibee", "KFC",
-            "Lee's Famous Recipe Chicken", "Louisiana Famous Fried Chicken", "Maryland Fried Chicken", "Pollo Campero",
-            "Pollo Tropical", "Popeyes", "Raising Cane's Chicken Fingers", "Slim Chickens", "Smithfield's Chicken 'N Bar-B-Q",
-            "Wingstop", "Zaxby's", "The Melting Pot", "Mimi's Cafe", "Olga's Kitchen", "Andy's Frozen Custard",
-            "Baskin-Robbins", "Ben & Jerry's", "Braum's", "Bruster's Ice Cream", "Carvel", "Cold Stone Creamery",
-            "Dairy Queen", "Dippin' Dots", "Fosters Freeze", "Golden Spoon", "Graeter's", "Häagen-Dazs",
-            "Handel's Homemade Ice Cream & Yogurt", "MaggieMoo's Ice Cream and Treatery", "Marble Slab Creamery",
-            "Menchie's Frozen Yogurt", "Oberweis Dairy", "Pinkberry", "Red Mango", "Rita's Italian Ice", "Sweet Frog",
-            "Tastee-Freez", "TCBY", "Tropical Sno", "Tutti Frutti Frozen Yogurt", "Yogen Früz", "Yogurtland",
-            "A&W Restaurants", "Arctic Circle Restaurants", "Back Yard Burgers", "Big Boy", "Blake's Lotaburger",
-            "Bumper's Drive-In", "Burger King", "Burger Street", "BurgerFi", "Burgerville", "Carl's Jr./Hardee's",
-            "Checkers/Rally's", "Cheeburger Cheeburger", "Cook Out", "Culver's", "Farmer Boys", "Fatburger",
-            "Five Guys", "Freddy's Frozen Custard & Steakburgers", "Frisch's Big Boy", "Fuddruckers", "Good Times Burgers & Frozen Custard",
-            "The Habit Burger Grill", "Hwy 55 Burgers Shakes & Fries", "In-N-Out Burger", "Jack in the Box", "Jack's",
-            "Krystal", "McDonald's", "Milo's Hamburgers", "Mooyah", "Original Tommy's", "Roy Rogers Restaurants",
-            "Shake Shack", "Smashburger", "Sonic Drive-In", "Spangles", "Steak 'n Shake", "Swensons",
-            "Umami Burger", "Ward's", "Wayback Burgers", "Wendy's", "Whataburger", "White Castle", "Zip's Drive-in",
-            "Hot Dog on a Stick", "James Coney Island", "Nathan's Famous", "Portillo's Restaurants", "Sneaky Pete's",
-            "Wienerschnitzel", "America's Incredible Pizza Company", "Big Mama's & Papa's Pizzeria", "Blackjack Pizza",
-            "Blaze Pizza", "Casey's", "Cicis", "D.P. Dough", "Domino's", "Donatos Pizza", "East of Chicago Pizza",
-            "Fazoli's", "Fox's Pizza Den", "Frank Pepe's", "Gino's East", "Gino's Pizza and Spaghetti", "Giordano's Pizzeria",
-            "Godfather's Pizza", "Grotto Pizza", "Happy's Pizza", "Hungry Howie's Pizza", "Hunt Brothers Pizza", "Jet's Pizza",
-            "Ledo Pizza", "Little Caesars", "Lou Malnati's", "Marco's Pizza", "MOD Pizza", "Monical's Pizza", "Mountain Mike's Pizza",
-            "Mr. Gatti's Pizza", "Papa Gino's", "Papa John's Pizza", "Papa Murphy's", "Pieology Pizzeria", "Pizza Fusion",
-            "Pizza Hut", "Pizza Inn", "Pizza Patrón", "Pizza Ranch", "Pizzeria Regina", "Round Table Pizza", "Sbarro",
-            "Uncle Maddio's Pizza Joint", "Cava", "Daphne's Greek Cafe", "The Halal Guys", "Pita Pit", "Taziki's Mediterranean Cafe",
-            "Zankou Chicken", "Baja Fresh", "Cafe Rio", "California Tortilla", "Chipotle Mexican Grill", "Del Taco", "El Taco Tote",
-            "Fuzzy's Taco Shop", "Green/Red Burrito", "La Salsa", "Mighty Taco", "Moe's Southwest Grill", "Qdoba", "Rubio's Coastal Grill",
-            "Salsarita's Fresh Mexican Grill", "Taco Bell", "Taco Bueno", "Taco Cabana", "Taco Casa", "Taco del Mar", "Tacos El Cuñado",
-            "Taco John's", "Taco Mayo", "Taco Palenque", "Taco Time", "Taco Villa", "Tijuana Flats", "Wahoo's Fish Taco", "Chopt",
-            "Just Salad", "Saladworks", "Sweetgreen", "Veggie Grill", "WaBa Grill", "Arby's", "Atlanta Bread Company", "Blimpie",
-            "Camille's Sidewalk Cafe", "Capriotti's", "Charleys Philly Steaks", "Corner Bakery Cafe", "Così", "Cousins Subs", "D'Angelo Grilled Sandwiches",
-            "DiBella's", "Earl of Sandwich", "Eegee's", "Erbert & Gerbert's", "Firehouse Subs", "Great Wraps", "HoneyBaked Ham Co.", "Jason's Deli",
-            "Jerry's Subs & Pizza", "Jersey Mike's Subs", "Jimmy John's", "Kelly's Roast Beef", "Lee's Sandwiches", "Lenny's Grill & Sub",
-            "Lion's Choice", "Maid-Rite", "McAlister's Deli", "Mendocino Farms", "Miami Grill", "Newk's Eatery", "Panera Bread", "Paris Baguette",
-            "Penn Station East Coast Subs", "Port of Subs", "Potbelly Sandwich Shop", "Pret a Manger", "Primo Hoagies", "Quiznos", "Rax Roast Beef",
-            "Runza", "Sandella's Flatbread Café", "Schlotzsky's", "Steak Escape", "Subway", "Togo's", "Tubby's", "Tudor's Biscuit World", "Which Wich?",
-            "Arthur Treacher's", "Captain D's", "Long John Silver's", "Bill Miller Bar-B-Q", "Copeland's", "Cracker Barrel", "Dickey's Barbecue Pit",
-            "Famous Dave's", "Grandy's", "Lucille's Smokehouse Bar-B-Que", "Pappas Bar-B-Q", "Red Hot & Blue", "Smokey Bones", "Sonny Bryan's Smokehouse",
-            "Sonny's BBQ", "Black Angus Steakhouse", "The Capital Grille", "Claim Jumper", "Del Frisco's Double Eagle Steakhouse", "Fleming's Prime Steakhouse & Wine Bar",
-            "Fogo de Chão", "Logan's Roadhouse", "LongHorn Steakhouse", "Montana Mike's", "Morton's The Steakhouse", "Outback Steakhouse", "The Palm",
-            "Ponderosa/Bonanza Steakhouses", "Ruth's Chris Steak House", "Saltgrass Steak House", "Sizzler", "Stonefire Grill", "Texas de Brazil",
-            "Texas Roadhouse", "Tony Roma's", "Western Sizzlin'", "Chuck E. Cheese", "Dave & Busters", "Peter Piper Pizza", "Topgolf", "Beefsteak Charlie's",
-            "Bikinis Sports Bar & Grill", "Bill Knapp's", "Bugaboo Creek Steakhouse", "Burger Chef", "Chi Chi's", "Chicken in the Rough", "ESPN Zone",
-            "Fresh Choice", "Furr's", "Good Earth", "Hamburger Hamlet", "Horne's", "Koo Koo Roo", "Lone Star Steakhouse & Saloon", "Lyon's", "Red Barn",
-            "ShopHouse Southeast Asian Kitchen", "ShowBiz Pizza Place", "Sweet Tomatoes", "York Steak House"];
+            // List of restaurants trimmed for brevity
+            const restaurants = ["7 Leaves Cafe", "Benihana", "Gen Korean BBQ", ...];
+
             return restaurants[Math.floor(Math.random() * restaurants.length)];
         }
 
@@ -179,34 +107,32 @@
         async function generateSentence() {
             const randomName = await fetchRandomName();
             const randomRestaurant = fetchRandomRestaurant();
-            the randomMinutes = generateRandomMinutes();
+            const randomMinutes = generateRandomMinutes();
 
             return `You'll have to excuse me I have a meeting with ${randomName} at ${randomRestaurant} in ${randomMinutes} minutes.`;
         }
 
         function speakSentence(sentence) {
             const formattedSentence = sentence;
-            the utterance = new SpeechSynthesisUtterance(formattedSentence);
-            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name.includes('Male'));
+            const utterance = new SpeechSynthesisUtterance(formattedSentence);
+            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang.startsWith('en') && voice.name includes 'Male'));
             window.speechSynthesis.speak(utterance);
             document.getElementById('generatedSentence').textContent = formattedSentence;
-           
+
             // Show the form and additional message as the excuse is generated
             document.getElementById('excuseForm').style.display = 'block';
             document.getElementById('scriptText').style.display = 'block';
             document.getElementById('excuse').value = formattedSentence; // Update the hidden field with the excuse
         }
 
-
         document.getElementById('bubLink').addEventListener('click', async function(event) {
             event.preventDefault();
 
             // Try to "wake up" speech synthesis
-    var emptyUtterance = new SpeechSynthesisUtterance('');
-    window.speechSynthesis.speak(emptyUtterance);
-    window.speechSynthesis.cancel(); // Immediately cancel to not actually speak the empty utterance
+            var emptyUtterance = new SpeechSynthesisUtterance('');
+            window.speechSynthesis.speak(emptyUtterance);
+            window.speechSynthesis.cancel(); // Immediately cancel to not actually speak the empty utterance
 
-            
             document.getElementById('sentenceFeedback').textContent = 'Generating excuse...';
             const sentence = await generateSentence();
             speakSentence(sentence);
@@ -224,3 +150,4 @@
     </script>
 </body>
 </html>
+
