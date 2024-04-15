@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kevin's folio</title>
+    <title>Kevin's folio</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRB4K32M3X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NRB4K32M3X');
+    </script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .question {
+            display: inline-block;
+            position: relative;
+            font-size: 20px;
+            cursor: pointer;
+        }
         .tooltip {
             visibility: hidden;
             background-color: black;
@@ -20,59 +51,23 @@
             top: -5px; /* Adjust this value to align vertically */
             width: 250px; /* Width of the tooltip */
         }
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 220px;
-            background-color: #f9f9f9;
-            color: #000;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            top: -5px;
-            right: 105%;
-        }
-        .tooltip:hover .tooltiptext {
+        .question:hover .tooltip {
             visibility: visible;
         }
-        .question-mark {
-            font-size: 0.3em;
-            vertical-align: super;
-        }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRB4K32M3X"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-NRB4K32M3X');
-    </script>
 </head>
 <body>
-    <header>
+    <div class="container">
         <h1>🥹</h1>
-    </header>
-    <main>
-        <div class="tooltip">
-            <h2>Bub the Escape Artist.<span class="question-mark">What is Bub?</span></h2>
-            <span class="tooltiptext">Thanks for toying around with it bra bra, I copied the portfolio style from the head of copy at Walmart who I was talking to. And then just added bub instead of a headline. It’s an app I wrote myself that gives a unique excuse every time with a different made up person’s name and I loaded in every chain restaurant in the United States, which my god there are a ton.
-
-Then it gives you the option to email it to yourself, which is a whole other cool program (emailjs) and I’m bcc’ed on all those emails. So if someone tries it I can email them if they’re worth it.
-
-Bub is inspired by that scene in American Psycho when Christian Bale is trying to get away and he’s like you’ll have to excuse me I have a meeting with cliff huxtable (bill cosby’s character’s name on the cosby show) at the four seasons.</span>
-        </div>
+        <h2>Bub the Escape Artist. <span class="question">?<span class="tooltip">Thanks for toying around with it bra bra, I copied the portfolio style from the head of copy at Walmart who I was talking to. And then just added bub instead of a headline. It’s an app I wrote myself that gives a unique excuse every time with a different made up person’s name and I loaded in every chain restaurant in the United States, which my god there are a ton. Then it gives you the option to email it to yourself, which is a whole other cool program (emailjs) and I’m bcc’ed on all those emails. So if someone tries it I can email them if they’re worth it. Bub is inspired by that scene in American Psycho when Christian Bale is trying to get away and he’s like you’ll have to excuse me I have a meeting with cliff huxtable (bill cosby’s character’s name on the cosby show) at the four seasons.</span></span></h2>
         <p id="sentenceFeedback">Press Bub & get an excuse to escape any convo.</p>
-        <p id="generatedSentence"></p> <!-- Element to display the generated sentence -->
+        <p id="generatedSentence"></p>
         <!-- Email form, initially hidden -->
         <form id="excuseForm" style="display:none;">
             <input type="email" id="emailAddress" name="user_email" placeholder="Your email address" required>
             <input type="hidden" id="excuse" name="excuse_message">
             <input type="submit" value="Send me this excuse">
         </form>
-        <!-- Additional line of text, initially hidden -->
         <p id="scriptText" style="display:none;"></p>
         <a id="bubLink" href="#" style="cursor: pointer;">
             <img src="newbub.png" alt="Bub the Prophet">
@@ -87,11 +82,11 @@ Bub is inspired by that scene in American Psycho when Christian Bale is trying t
                 <li><a href="bio-contact.html">Bio/Contact</a></li>
             </ul>
         </nav>
-    </main>
+    </div>
     <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init("jZCrMG8JEvzJ1JB1l"); // Replace with your actual EmailJS user ID
+            emailjs.init("jZCrMG8JEvzJ1JB1l");
         })();
     </script>
     <script>
