@@ -16,6 +16,11 @@
         gtag('config', 'G-NRB4K32M3X');
     </script>
     <style>
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
         body {
             font-family: 'Archivo Narrow', sans-serif;
             background-color: white;
@@ -49,13 +54,17 @@
         }
         .big-message {
             font-family: 'Domine', serif; /* Use Domine font */
-            font-size: 6em; /* Bigger headline */
+            font-size: 8em; /* Even bigger headline */
             font-weight: bold; /* Bolder headline */
             margin: 20px 0;
         }
         .big-image img {
             max-width: 40%; /* Smaller image */
             height: auto;
+        }
+        .blink {
+            animation: blink 1s infinite;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -79,7 +88,8 @@
                 <img src="digbyflamingo.png" alt="Digby promotion image">
             </a>
         </div>
-        <p>Digby makes your writing clear, slim, and easy to read. Paste your text, click a button and let Digby cut the fluff. Click the flamingo to try for free.</p>
+        <p>Digby makes your writing clear, slim, and easy to read. Paste your text, click a button and let Digby cut the fluff.</p>
+        <p class="blink">Click the flamingo to try for free.</p>
     </main>
 </body>
 </html>
