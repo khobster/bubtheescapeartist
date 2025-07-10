@@ -1,68 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #fff;
-            color: #333;
-            text-align: center; /* Centers the content */
-            padding: 20px;
-        }
-        
-        img {
-            width: 500px; /* Set the width to a larger size */
-            height: auto;
-            margin-top: 20px;
-        }
-        
-        .headline {
-            font-size: 2em; /* Adjust size as needed */
-            margin: 20px 0;
-        }
-        
-        .description {
-            font-size: 1em; /* Adjust size as needed */
-        }
-        
-        /* Add more custom CSS here as needed */
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stuff I’ve Built</title>
+
+  <!-- Fonts (same family as the portfolio) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&display=swap">
+
+  <style>
+    /* ---- Base ---- */
+    body {
+      font-family: 'Archivo Narrow', sans-serif;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    h1.page-title {
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    /* ---- Gallery wrapper ---- */
+    .gallery {
+      max-width: 700px;    /* keeps things narrow on huge monitors */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* ---- Each project ---- */
+    .project img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
+      transition: transform .2s;
+    }
+
+    .project img:hover {
+      transform: scale(1.02);
+    }
+
+    .project h2 {
+      font-size: clamp(1.2rem, 4.8vw, 1.8rem);
+      margin: 1rem 0 .5rem;
+      color: #222;
+    }
+
+    .project p {
+      font-size: clamp(0.9rem, 3.8vw, 1.05rem);
+      line-height: 1.4;
+      margin: 0;
+      max-width: 90%;
+      margin-inline: auto;
+    }
+  </style>
 </head>
+
 <body>
-    <h1 class="headline">Stuff I've Built</h1>
-    <a href="https://khobster.github.io/trav2tay/" target="_blank">
-        <img src="trav2tay.png" alt="Trav2Tay Game Logo">
-    </a>
-            <p class="description">Built this simple video game where you try to fly the tight end on a bald eagle and reunite him with his boo, Tay</p>
-    </a>
-    <a href="https://smackhomers.com" target="_blank">
-        <img src="homerunderbyopengraph.png" alt="Smack Homers Logo">
-    </a>
-    <p class="description">A baseball dinger derby game where you try the to smack homers off some real eccentric pitchers.</p>
-    <!-- Repeat for a second item -->
-    <h1 class="MOOKIE"></h1>
-    <a href="https://www.mookie.click/" target="_blank">
-        <img src="mookieopengraph.png" alt="Second Game Logo">
-    </a>
-    <p class="description">A game I built for basketball junkies that gives you challenges you can text to your friends and go back and forth.</p>
-    <!-- Repeat for a second item -->
-    <h1 class="The Movie Game"></h1>
-    <a href="https://khobster.github.io/themoviegame/" target="_blank">
-        <img src="moviegamelogo.png" alt="Third Game Logo">
-    </a>
-    <p class="description">A movie game I built where you're given the opposite of an Oscar-nominated movie title and you have to correctly guess which movie it is.</p>
-    <h1 class="Palooka"></h1>
-    <a href="https://khobster.github.io/palooka/" target="_blank">
-        <img src="palooka.png" alt="Palooka Logo">
-    </a>
-    <p class="description">A beta thing I built that I'm still working on that aims to make virtual meetings shorter and more productive.</p>
-    <h1 class="Bub"></h1>
-    <a href="https://khobster.github.io/bub/" target="_blank">
-        <img src="bubscreen.png" alt="Bub Logo">
-    </a>
-    <p class="description">An app I built that'll get you out of any conversation.</p>
+  <h1 class="page-title">Stuff I've Built</h1>
+
+  <div class="gallery">
+
+    <!-- Trav 2 Tay -->
+    <article class="project">
+      <a href="https://khobster.github.io/trav2tay/" target="_blank">
+        <img src="trav2tay.png" alt="Trav 2 Tay – game screenshot">
+      </a>
+      <h2>Trav 2 Tay</h2>
+      <p>Fly a football tight end on a bald eagle and get him back to his boo, Tay.</p>
+    </article>
+
+    <!-- Smack Homers -->
+    <article class="project">
+      <a href="https://smackhomers.com" target="_blank">
+        <img src="homerunderbyopengraph.png" alt="Smack Homers – game screenshot">
+      </a>
+      <h2>Smack Homers</h2>
+      <p>A dinger-derby where you face eccentric pitchers and try to launch tape-measure shots.</p>
+    </article>
+
+    <!-- Mookie -->
+    <article class="project">
+      <a href="https://www.mookie.click/" target="_blank">
+        <img src="mookieopengraph.png" alt="Mookie – game screenshot">
+      </a>
+      <h2>Mookie</h2>
+      <p>Basketball-trivia challenges you can text to friends and battle back and forth.</p>
+    </article>
+
+    <!-- The Movie Game -->
+    <article class="project">
+      <a href="https://khobster.github.io/themoviegame/" target="_blank">
+        <img src="moviegamelogo.png" alt="The Movie Game – app screenshot">
+      </a>
+      <h2>The Movie Game</h2>
+      <p>Guess Oscar-nominated movies from their upside-down, opposite titles.</p>
+    </article>
+
+    <!-- Palooka -->
+    <article class="project">
+      <a href="https://khobster.github.io/palooka/" target="_blank">
+        <img src="palooka.png" alt="Palooka – app screenshot">
+      </a>
+      <h2>Palooka (beta)</h2>
+      <p>Prototype aiming to make virtual meetings shorter and more productive.</p>
+    </article>
+
+    <!-- Bub -->
+    <article class="project">
+      <a href="https://khobster.github.io/bub/" target="_blank">
+        <img src="bubscreen.png" alt="Bub – app screenshot">
+      </a>
+      <h2>Bub</h2>
+      <p>An app that gets you out of any conversation—politely.</p>
+    </article>
+
+  </div>
 </body>
 </html>
