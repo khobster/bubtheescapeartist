@@ -37,7 +37,7 @@ nav ul {
   display: flex;
   flex-wrap: wrap;              /* lets items wrap on small screens */
   justify-content: center;
-  gap: 1rem;
+  gap: 2.25rem;                 /* <— wider spacing for desktop */
 }
 
 nav li {
@@ -104,11 +104,11 @@ p {
 @media (max-width: 600px) {
   header { padding: 0.75rem 0; }
 
-  nav ul { gap: 0.5rem; }
+  nav ul { gap: 0.5rem; }       /* keeps mobile menu compact */
 
   .big-message {
     font-size: clamp(2rem, 10vw, 3.25rem); /* keep headline tame */
   }
 
-  p { font-size: 0.95rem; } /* slightly larger body copy for readability */
+  p { font-size: 0.95rem; }     /* slightly larger body copy for readability */
 }
