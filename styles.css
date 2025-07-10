@@ -37,7 +37,7 @@ nav ul {
   display: flex;
   flex-wrap: wrap;              /* lets items wrap on small screens */
   justify-content: center;
-  gap: 4.25rem;                 /* <— wider spacing for desktop */
+  gap: 8.25rem;                 /* <— wider spacing for desktop */
 }
 
 nav li {
