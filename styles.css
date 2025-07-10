@@ -35,9 +35,14 @@ header {
 nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;              /* lets items wrap on small screens */
+  flex-wrap: wrap;              /* items can wrap on narrow screens */
   justify-content: center;
-  gap: 16.25rem;                 /* <— wider spacing for desktop */
+  gap: 2.25rem;                 /* primary spacing for browsers with flex-gap */
+}
+
+/* --- Safari (pre-16) fallback --- */
+nav li:not(:last-child) {
+  margin-right: 2.25rem;        /* same value as gap */
 }
 
 nav li {
@@ -104,11 +109,13 @@ p {
 @media (max-width: 600px) {
   header { padding: 0.75rem 0; }
 
-  nav ul { gap: 0.5rem; }       /* keeps mobile menu compact */
+  /* compact nav spacing */
+  nav ul { gap: 0.5rem; }
+  nav li:not(:last-child) { margin-right: 0.5rem; }
 
   .big-message {
     font-size: clamp(2rem, 10vw, 3.25rem); /* keep headline tame */
   }
 
-  p { font-size: 0.95rem; }     /* slightly larger body copy for readability */
+  p { font-size: 0.95rem; } /* slightly larger body copy for readability */
 }
