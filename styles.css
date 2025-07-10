@@ -1,60 +1,114 @@
+/* ---------- Imports & Reset ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Domine:wght@700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Theme vars ---------- */
+:root {
+  --brand-brown: #653600;
+}
+
+/* ---------- Base ---------- */
 body {
-    font-family: 'Your-Font-Family', sans-serif;
-    color: #653600;
-    background-color: #fff;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-header h1 {
-    margin-top: 50px;
-    font-size: 4vw; /* Responsive font size */
-}
-
-main h2 {
-    font-size: 3.5vw; /* Responsive font size */
-    margin: 20px 0;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav li {
-    margin: 5px; /* Adjust margin for a better look on different screens */
-    flex: 1 1 auto; /* Flexibility for list items */
-}
-
-nav a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.2em; /* Responsive font size that scales */
-}
-
-nav a:hover {
-    text-decoration: underline;
+  font-family: 'Archivo Narrow', sans-serif;
+  color: var(--brand-brown);
+  background: #fff;
+  text-align: center;
 }
 
 img {
-    max-width: 100%; /* Ensure images are responsive */
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
+/* ---------- Navigation ---------- */
+header {
+  padding: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;              /* lets items wrap on small screens */
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav li {
+  flex: 0 1 auto;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1vw, 1.15rem); /* scales smoothly */
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Hero Section ---------- */
+main {
+  /* full-screen hero that always fits */
+  min-height: calc(100vh - 120px); /* ~120 px ≈ header height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem;
+}
+
+/* headline */
+.big-message {
+  font-family: 'Domine', serif;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #000;                            /* stronger contrast */
+  font-size: clamp(2.25rem, 7.5vw, 4.75rem);
+}
+
+/* flamingo */
+.big-image img {
+  width: 100%;
+  max-width: clamp(180px, 32vw, 380px);
+  height: auto;
+}
+
+/* body copy */
+p {
+  max-width: 600px;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+}
+
+/* blinking CTA */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+.blink {
+  animation: blink 1s infinite ease-in-out;
+  font-weight: bold;
+  color: #888;
+}
+
+/* ---------- Mobile tweaks ---------- */
 @media (max-width: 600px) {
-    header h1, main h2 {
-        font-size: 5vw; /* Increase font size for small devices */
-    }
+  header { padding: 0.75rem 0; }
 
-    nav ul {
-        flex-direction: column; /* Stack nav items vertically on small screens */
-    }
+  nav ul { gap: 0.5rem; }
 
-    nav li {
-        margin-right: 0; /* Adjust margin-right for nav items on small screens */
-    }
+  .big-message {
+    font-size: clamp(2rem, 10vw, 3.25rem); /* keep headline tame */
+  }
+
+  p { font-size: 0.95rem; } /* slightly larger body copy for readability */
 }
