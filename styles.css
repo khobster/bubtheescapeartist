@@ -10,9 +10,7 @@
 }
 
 /* ---------- Theme vars ---------- */
-:root {
-  --brand-brown: #653600;
-}
+:root { --brand-brown: #653600; }
 
 /* ---------- Base ---------- */
 body {
@@ -22,48 +20,36 @@ body {
   text-align: center;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+img { max-width: 100%; height: auto; }
 
-/* ---------- Navigation ---------- */
-header {
-  padding: 1rem 0;
-}
+/* ---------- Navigation (desktop & modern browsers) ---------- */
+header { padding: 1rem 0; }
 
 nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;              /* items can wrap on narrow screens */
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2.25rem;                 /* primary spacing for browsers with flex-gap */
+  gap: 2.25rem;                /* primary spacing when flex-gap is supported */
 }
 
-/* --- Safari (pre-16) fallback --- */
-nav li:not(:last-child) {
-  margin-right: 2.25rem;        /* same value as gap */
-}
+/* Safari <16 fallback */
+nav li:not(:last-child) { margin-right: 2.25rem; }
 
-nav li {
-  flex: 0 1 auto;
-}
+nav li { flex: 0 1 auto; }
 
 nav a {
   text-decoration: none;
   color: inherit;
   font-weight: 700;
-  font-size: clamp(0.95rem, 1vw, 1.15rem); /* scales smoothly */
+  font-size: clamp(0.95rem, 1vw, 1.15rem);
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
+nav a:hover { text-decoration: underline; }
 
 /* ---------- Hero Section ---------- */
 main {
-  /* full-screen hero that always fits */
-  min-height: calc(100vh - 120px); /* ~120 px ≈ header height */
+  min-height: calc(100vh - 120px);   /* ensure hero fits one screen */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,50 +58,40 @@ main {
   padding: 1rem;
 }
 
-/* headline */
 .big-message {
   font-family: 'Domine', serif;
   font-weight: 700;
   line-height: 1.1;
-  color: #000;                            /* stronger contrast */
+  color: #000;
   font-size: clamp(2.25rem, 7.5vw, 4.75rem);
 }
 
-/* flamingo */
 .big-image img {
   width: 100%;
   max-width: clamp(180px, 32vw, 380px);
-  height: auto;
 }
 
-/* body copy */
-p {
-  max-width: 600px;
-  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
-}
+/* Body copy */
+p { max-width: 600px; font-size: clamp(0.9rem, 1.1vw, 1.05rem); }
 
-/* blinking CTA */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
-}
-.blink {
-  animation: blink 1s infinite ease-in-out;
-  font-weight: bold;
-  color: #888;
-}
+/* Blinking CTA */
+@keyframes blink { 0%,100% {opacity:1;} 50% {opacity:0;} }
+.blink { animation: blink 1s infinite ease-in-out; font-weight: bold; color: #888; }
 
 /* ---------- Mobile tweaks ---------- */
 @media (max-width: 600px) {
   header { padding: 0.75rem 0; }
 
-  /* compact nav spacing */
-  nav ul { gap: 0.5rem; }
-  nav li:not(:last-child) { margin-right: 0.5rem; }
-
-  .big-message {
-    font-size: clamp(2rem, 10vw, 3.25rem); /* keep headline tame */
+  /* stack nav items vertically */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;              /* vertical spacing */
   }
 
-  p { font-size: 0.95rem; } /* slightly larger body copy for readability */
+  /* override desktop margin fallback */
+  nav li:not(:last-child) { margin-right: 0; margin-bottom: 0.75rem; }
+
+  .big-message { font-size: clamp(2rem, 10vw, 3.25rem); }
+  p { font-size: 0.95rem; }
 }
