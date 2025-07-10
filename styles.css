@@ -68,7 +68,8 @@ main {
 
 .big-image img {
   width: 100%;
-  max-width: clamp(180px, 32vw, 380px);
+  max-width: clamp(220px, 60vw, 380px);
+  height: auto;
 }
 
 /* Body copy */
