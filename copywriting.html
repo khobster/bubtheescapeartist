@@ -3,13 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Experience</title>
+    <title>Work — Kevin Murawinski</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&display=swap">
     <link rel="stylesheet" href="copywriting-styles.css">
+    <style>
+      /* ---- Shared site nav ---- */
+      .site-nav {
+        display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+        gap: 0.75rem 2rem; max-width: 1000px; margin: 0 auto 1.5rem; padding: 0.25rem 0.25rem 1.25rem;
+        text-align: left;
+      }
+      .site-nav__brand {
+        font-family: 'Archivo Narrow', sans-serif;
+        font-weight: 700; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase;
+        color: #000; text-decoration: none; white-space: nowrap;
+      }
+      .site-nav nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 0; margin: 0; }
+      .site-nav a { font-family: 'Archivo Narrow', sans-serif; color: #444; text-decoration: none; font-weight: 700; font-size: 1rem; }
+      .site-nav__brand { color: #000; }
+      .site-nav a:hover { text-decoration: underline; color: #1F9E5A; }
+      @media (max-width: 640px) {
+        .site-nav { flex-direction: column; gap: 0.85rem; text-align: center; }
+        .site-nav nav ul { justify-content: center; gap: 1rem 1.25rem; }
+      }
+    </style>
 </head>
 <body>
+    <header class="site-nav">
+        <a class="site-nav__brand" href="index.html">Kevin&nbsp;Murawinski</a>
+        <nav>
+            <ul>
+                <li><a href="copywriting.html">Work</a></li>
+                <li><a href="https://sluicebox-media.com/work/newspaper-writing/" target="_blank" rel="noopener">Writing</a></li>
+                <li><a href="games.html">Labs</a></li>
+                <li><a href="https://www.linkedin.com/in/kevin-murawinski/" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://visit.virtualartgallery.com/thegarysheffieldpool" target="_blank" rel="noopener">Art</a></li>
+                <li><a href="bio-contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section class="work-experience">
-        <h1>Work Experience</h1>
-        
+        <h1>Work</h1>
+
+        <!-- Experience Block -->
+        <div class="experience-block">
+            <img src="cfgilogo.png" alt="CFGI logo" class="company-logo">
+            <div class="time-period">2024–Present</div>
+            <p>A full-spectrum marketing and operations engagement. Grew LinkedIn from 11K to 54K followers — a 5x lift in a notoriously hard B2B audience — powered by a thought-leadership strategy I built and ran. Stood up Salesforce lead scoring, internal cross-sell hubs, and event ops; led international marketing consulting and brand correction that replaced an entire Boston agency. Wrote case studies that drove client closes and built an outreach system that landed a partner 120+ private-equity meetings. Most recently, rebuilt four country websites in weeks using AI tooling.</p>
+        </div>
+
+        <!-- Experience Block -->
+        <div class="experience-block">
+            <img src="strykercapitallogo.png" alt="Stryker Capital logo" class="company-logo">
+            <div class="time-period">2023–2024</div>
+            <p>Directed content strategy and storytelling for Stryker's developing new venture, producing swift, power-packed pitch decks and fundraising collateral customized to the interests of specific venture capitalists and angel investors. A trusted network of subject matter experts help us deliver content that goes beyond the surface level and underscores a mission that's genuine, studied, and dedicated.</p>
+        </div>
+
         <!-- Experience Block -->
         <div class="experience-block">
             <img src="signallogo.png" alt="Signal logo" class="company-logo">

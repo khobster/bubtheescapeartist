@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KEVIN'S PORTFOLIO</title>
+    <title>Kevin Murawinski — Senior Marketing &amp; Brand Operator</title>
+    <meta name="description" content="Kevin Murawinski — senior marketing and brand operator. Brand, content, and the tools that run them.">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Domine:wght@700&display=swap">
     <link rel="stylesheet" href="styles.css">
@@ -15,81 +16,111 @@
         gtag('js', new Date());
         gtag('config', 'G-NRB4K32M3X');
     </script>
-    <style>
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        body {
-            font-family: 'Archivo Narrow', sans-serif;
-            background-color: white;
-            color: black;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            margin: 20px 0;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        nav ul li {
-            display: inline;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-            font-size: 1.2em; /* Slightly bigger */
-        }
-        main {
-            padding: 20px;
-        }
-        .big-message {
-            font-family: 'Domine', serif; /* Use Domine font */
-            font-size: 8em; /* Even bigger headline */
-            font-weight: bold; /* Bolder headline */
-            margin: 20px 0;
-        }
-        .big-image img {
-            max-width: 40%; /* Smaller image */
-            height: auto;
-        }
-        .blink {
-            animation: blink 1s infinite;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
-    <header>
+    <header class="site-nav">
+        <a class="site-nav__brand" href="index.html">Kevin&nbsp;Murawinski</a>
         <nav>
             <ul>
-                <li><a href="copywriting.html">Copywriting + Content</a></li>
-                <li><a href="https://sluicebox-media.com/work/newspaper-writing/" target="_blank">Newspaper Bylines</a></li>
-                <li><a href="games.html">Games + Tools</a></li>
-                <li><a href="https://www.linkedin.com/in/kevin-murawinski/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://visit.virtualartgallery.com/thegarysheffieldpool">Art</a></li>
-                <li><a href="bio-contact.html">Contact Me!</a></li>
+                <li><a href="copywriting.html">Work</a></li>
+                <li><a href="https://sluicebox-media.com/work/newspaper-writing/" target="_blank" rel="noopener">Writing</a></li>
+                <li><a href="games.html">Labs</a></li>
+                <li><a href="https://www.linkedin.com/in/kevin-murawinski/" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://visit.virtualartgallery.com/thegarysheffieldpool" target="_blank" rel="noopener">Art</a></li>
+                <li><a href="bio-contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <div class="big-message">Chop the floof.</div>
-        <div class="big-image">
-            <a href="https://www.digby.click" target="_blank">
-                <img src="digbyflamingo.png" alt="Digby promotion image">
-            </a>
+
+    <main class="hero">
+        <p class="hero__eyebrow">Marketing · Brand · Content · Builder</p>
+        <h1 class="hero__headline">Senior marketing &amp; brand operator.</h1>
+        <p class="hero__subhead">I build brands, content engines, and the tools that run them — then show up and operate.</p>
+
+        <!-- Typing proof reel (JS-driven). First line is also the no-JS fallback. -->
+        <p class="hero__reel"><span id="typed">Rebuilt 4 country websites in weeks.</span><span class="cursor" aria-hidden="true">▋</span></p>
+
+        <!-- Static fallback shown when the visitor prefers reduced motion -->
+        <ul class="hero__reel-static" hidden>
+            <li>Rebuilt 4 country websites in weeks.</li>
+            <li>Grew a LinkedIn audience 11K → 54K.</li>
+            <li>GEO + schema markup that gets brands cited by AI search.</li>
+            <li>200K+ qualified leads at CB Insights.</li>
+            <li>Built my own POS (White Bread) and an AI editor (Digby).</li>
+            <li>Cold outreach that booked hundreds of meetings.</li>
+        </ul>
+
+        <div class="hero__cta">
+            <a class="btn btn--primary" href="copywriting.html">See the work</a>
+            <a class="btn btn--ghost" href="bio-contact.html">Get in touch</a>
         </div>
-        <p>Digby is a smart editor I built that makes your writing clear, slim, and easy to read. Paste your text, click a button and let Digby chop the flooff.</p>
-        <p class="blink">Click the flamingo to try for free.</p>
+
+        <ul class="logos" aria-label="Selected brands and organizations I've worked with">
+            <li><img src="3mlogo.png" alt="3M"></li>
+            <li><img src="idmelogo.png" alt="ID.me"></li>
+            <li><img src="cbi.png" alt="CB Insights"></li>
+            <li><img src="nahblogo.png" alt="NAHB"></li>
+            <li><img src="ncmalogo.png" alt="NCMA"></li>
+            <li><img src="pepsicologo.svg" alt="PepsiCo"></li>
+            <li><img src="spanxlogo.png" alt="Spanx"></li>
+            <li><img src="dunkinlogo.png" alt="Dunkin'"></li>
+            <li><img src="viacomlogo.svg" alt="Viacom"></li>
+            <li><img src="dcmetrologo.png" alt="DC Metro (WMATA)"></li>
+            <li><img src="keyfoodlogo.png" alt="Key Food Supermarkets"></li>
+            <li><img src="fabcomlogo.png" alt="Fab.com"></li>
+            <li><img src="starledgerlogo.png" alt="The Newark Star-Ledger"></li>
+        </ul>
     </main>
+
+    <script>
+        (function () {
+            var phrases = [
+                "Rebuilt 4 country websites in weeks.",
+                "Grew a LinkedIn audience 11K → 54K.",
+                "GEO + schema markup that gets brands cited by AI search.",
+                "200K+ qualified leads at CB Insights.",
+                "Built my own POS (White Bread) and an AI editor (Digby).",
+                "Cold outreach that booked hundreds of meetings."
+            ];
+
+            var typedEl = document.getElementById('typed');
+            var reelLine = document.querySelector('.hero__reel');
+            var staticList = document.querySelector('.hero__reel-static');
+            var prefersReduced = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Reduced motion: skip the animation, show the full static list.
+            if (prefersReduced) {
+                reelLine.hidden = true;
+                staticList.hidden = false;
+                return;
+            }
+
+            var p = 0, c = 0, deleting = false;
+            typedEl.textContent = '';
+
+            function tick() {
+                var word = phrases[p];
+                if (!deleting) {
+                    typedEl.textContent = word.slice(0, c + 1);
+                    c++;
+                    if (c === word.length) {        // fully typed — hold, then erase
+                        deleting = true;
+                        return setTimeout(tick, 1700);
+                    }
+                } else {
+                    typedEl.textContent = word.slice(0, c - 1);
+                    c--;
+                    if (c === 0) {                  // fully erased — next phrase
+                        deleting = false;
+                        p = (p + 1) % phrases.length;
+                    }
+                }
+                setTimeout(tick, deleting ? 30 : 55);
+            }
+
+            tick();
+        })();
+    </script>
 </body>
 </html>

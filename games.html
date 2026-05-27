@@ -25,103 +25,134 @@
       color: #555;
     }
 
-    /* ---- Gallery wrapper ---- */
-    .gallery {
-      max-width: 700px;    /* keeps things narrow on huge monitors */
+    /* ---- Labs list ---- */
+    .lab-list {
+      list-style: none;
+      max-width: 620px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      padding: 0;
+      text-align: left;
+    }
+    .lab {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid #ececec;
+    }
+    .lab:last-child { border-bottom: none; }
+    .lab__name {
+      font-size: clamp(1.15rem, 4.5vw, 1.5rem);
+      font-weight: 700;
+      color: #111;
+      text-decoration: none;
+    }
+    .lab__name::after { content: " \2197"; font-size: 0.72em; color: #1F9E5A; }
+    .lab__name:hover { color: #1F9E5A; text-decoration: underline; }
+    .lab__desc {
+      margin: 0.3rem 0 0;
+      font-size: 1rem;
+      line-height: 1.45;
+      color: #555;
     }
 
-    /* ---- Each project ---- */
-    .project img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 4px 14px rgba(0,0,0,.08);
-      transition: transform .2s;
+    /* ---- Shared site nav ---- */
+    .site-nav {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 0.75rem 2rem; max-width: 1000px; margin: 0 auto 1.5rem; padding: 0.25rem 0.25rem 1.25rem;
+      text-align: left;
     }
-
-    .project img:hover {
-      transform: scale(1.02);
+    .site-nav__brand {
+      font-weight: 700; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #000; text-decoration: none; white-space: nowrap;
     }
-
-    .project h2 {
-      font-size: clamp(1.2rem, 4.8vw, 1.8rem);
-      margin: 1rem 0 .5rem;
-      color: #222;
-    }
-
-    .project p {
-      font-size: clamp(0.9rem, 3.8vw, 1.05rem);
-      line-height: 1.4;
-      margin: 0;
-      max-width: 90%;
-      margin-inline: auto;
+    .site-nav nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 0; margin: 0; }
+    .site-nav a { color: #444; text-decoration: none; font-weight: 700; font-size: 1rem; }
+    .site-nav__brand { color: #000; }
+    .site-nav a:hover { text-decoration: underline; color: #1F9E5A; }
+    @media (max-width: 640px) {
+      .site-nav { flex-direction: column; gap: 0.85rem; text-align: center; }
+      .site-nav nav ul { justify-content: center; gap: 1rem 1.25rem; }
     }
   </style>
 </head>
 
 <body>
+  <header class="site-nav">
+    <a class="site-nav__brand" href="index.html">Kevin&nbsp;Murawinski</a>
+    <nav>
+      <ul>
+        <li><a href="copywriting.html">Work</a></li>
+        <li><a href="https://sluicebox-media.com/work/newspaper-writing/" target="_blank" rel="noopener">Writing</a></li>
+        <li><a href="games.html">Labs</a></li>
+        <li><a href="https://www.linkedin.com/in/kevin-murawinski/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://visit.virtualartgallery.com/thegarysheffieldpool" target="_blank" rel="noopener">Art</a></li>
+        <li><a href="bio-contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <h1 class="page-title">Stuff I've Built</h1>
 
-  <div class="gallery">
+  <ul class="lab-list">
 
-    <!-- Trav 2 Tay -->
-    <article class="project">
-      <a href="https://khobster.github.io/trav2tay/" target="_blank">
-        <img src="trav2tay.png" alt="Trav 2 Tay – game screenshot">
-      </a>
-      <h2>Trav 2 Tay</h2>
-      <p>Fly a football tight end on a bald eagle and get him back to his boo, Tay.</p>
-    </article>
+    <li class="lab">
+      <a class="lab__name" href="https://www.digby.click" target="_blank" rel="noopener">Digby</a>
+      <p class="lab__desc">A smart editor that makes your writing clear, slim, and easy to read—paste your text, hit the button, and let Digby chop the floof.</p>
+    </li>
 
-    <!-- Smack Homers -->
-    <article class="project">
-      <a href="https://smackhomers.com" target="_blank">
-        <img src="homerunderbyopengraph.png" alt="Smack Homers – game screenshot">
-      </a>
-      <h2>Smack Homers</h2>
-      <p>A dinger-derby where you face eccentric pitchers and try to launch tape-measure shots.</p>
-    </article>
+    <li class="lab">
+      <a class="lab__name" href="https://trav2tay.netlify.app/" target="_blank" rel="noopener">Trav 2 Tay</a>
+      <p class="lab__desc">Fly a football tight end on a bald eagle and get him back to his boo, Tay.</p>
+    </li>
 
-    <!-- Mookie -->
-    <article class="project">
-      <a href="https://www.mookie.click/" target="_blank">
-        <img src="mookieopengraph.png" alt="Mookie – game screenshot">
-      </a>
-      <h2>Mookie</h2>
-      <p>Basketball-trivia challenges you can text to friends and battle back and forth.</p>
-    </article>
+    <li class="lab">
+      <a class="lab__name" href="https://smackhomers.com/" target="_blank" rel="noopener">Smack Homers</a>
+      <p class="lab__desc">A dinger-derby where you face eccentric pitchers and try to launch tape-measure shots.</p>
+    </li>
 
-    <!-- The Movie Game -->
-    <article class="project">
-      <a href="https://khobster.github.io/themoviegame/" target="_blank">
-        <img src="moviegamelogo.png" alt="The Movie Game – app screenshot">
-      </a>
-      <h2>The Movie Game</h2>
-      <p>Guess Oscar-nominated movies from their upside-down, opposite titles.</p>
-    </article>
+    <li class="lab">
+      <a class="lab__name" href="https://mookie.click/wildcat" target="_blank" rel="noopener">Wildcat</a>
+      <p class="lab__desc">A multiplayer guessing game—name the college from the clues, and guess wrong and you're out.</p>
+    </li>
 
-    <!-- Palooka -->
-    <article class="project">
-      <a href="https://khobster.github.io/palooka/" target="_blank">
-        <img src="palooka.png" alt="Palooka – app screenshot">
-      </a>
-      <h2>Palooka (beta)</h2>
-      <p>Prototype aiming to make virtual meetings shorter and more productive.</p>
-    </article>
+    <li class="lab">
+      <a class="lab__name" href="https://www.mookie.click/" target="_blank" rel="noopener">Mookie</a>
+      <p class="lab__desc">Basketball-trivia challenges you can text to friends and battle back and forth.</p>
+    </li>
 
-    <!-- Bub -->
-    <article class="project">
-      <a href="https://khobster.github.io/bub/" target="_blank">
-        <img src="bubscreen.png" alt="Bub – app screenshot">
-      </a>
-      <h2>Bub</h2>
-      <p>An app that gets you out of any conversation—politely.</p>
-    </article>
+    <li class="lab">
+      <a class="lab__name" href="https://moviegame99999.netlify.app/" target="_blank" rel="noopener">The Movie Game</a>
+      <p class="lab__desc">Guess Oscar-nominated movies from their upside-down, opposite titles.</p>
+    </li>
 
-  </div>
+    <li class="lab">
+      <a class="lab__name" href="https://vannabite.netlify.app/" target="_blank" rel="noopener">Vanna Bite</a>
+      <p class="lab__desc">A Wheel-of-Fortune-style word game—spin, buy your letters, and solve the puzzle before your luck runs out.</p>
+    </li>
+
+    <li class="lab">
+      <a class="lab__name" href="https://khobster.github.io/kentucky-shmerby/" target="_blank" rel="noopener">Kentucky Shmerby</a>
+      <p class="lab__desc">A multiplayer tap-race—mash the button to send your steed down the stretch in a Kentucky Derby send-up.</p>
+    </li>
+
+    <li class="lab">
+      <a class="lab__name" href="https://deaddropgame.netlify.app/" target="_blank" rel="noopener">Dead Drop</a>
+      <p class="lab__desc">A spy-flavored game of stashing the package and slipping the drop without getting made. <em>(placeholder—give me the real one-liner)</em></p>
+    </li>
+
+    <li class="lab">
+      <a class="lab__name" href="https://khobster.github.io/dummy/" target="_blank" rel="noopener">Dummy</a>
+      <p class="lab__desc">A weather app for the weird stuff—hyperlocal dew-point and comfort forecasts, including the best evenings this week for an outdoor fire.</p>
+    </li>
+
+    <li class="lab">
+      <a class="lab__name" href="https://khobster.github.io/palooka/" target="_blank" rel="noopener">Palooka (beta)</a>
+      <p class="lab__desc">A prototype aiming to make virtual meetings shorter and more productive.</p>
+    </li>
+
+    <li class="lab">
+      <a class="lab__name" href="https://bubtheescapeartist.netlify.app/" target="_blank" rel="noopener">Bub</a>
+      <p class="lab__desc">An app that gets you out of any conversation—politely.</p>
+    </li>
+
+  </ul>
 </body>
 </html>
